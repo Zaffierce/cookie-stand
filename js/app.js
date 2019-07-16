@@ -1,12 +1,17 @@
 'use strict';
 
+function getRandomCookie(index) {
+  var min = index.minCustomer;
+  var max = index.maxCustomer;
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 function getCookiesorSomething(index) {
   var totalCookies = []; //Stores the total cookies into an array
   var ulEl = document.getElementById(index.elementID);
   for (var i = 0; i < times.length + 1; i++) {
     var avgCookieMathFloor = Math.floor(Math.round(index.avgCookiesPS));
-    var salesAvgHour = index.getRandomCookie(index.minCustomer, index.maxCustomer);
+    var salesAvgHour = getRandomCookie(index);
     var bakeCookies = Math.floor(Math.round(salesAvgHour * avgCookieMathFloor));
     // console.log(`i = ${i} - times.length - ${times.length}-- ${times[i]} avgCookie = ${avgCookieMathFloor} , salesAvgHour = ${salesAvgHour}, cookies baked ${bakeCookies}`);
     totalCookies.push(bakeCookies);
@@ -14,9 +19,9 @@ function getCookiesorSomething(index) {
     liEl.textContent = `${times[i]}: ${bakeCookies} cookies`;
     ulEl.appendChild(liEl);
   }
-  totalCookies.pop(); //Cheaty process to drop my ghost array.  But it works so, hatesr gunna hate
+  totalCookies.pop(); //Cheaty process to drop my ghost array.  But it works so, haters gunna hate
   var sumTotCookies = 0;
-  for (var j = 0; j < totalCookies.length; j++){  //Loop to add our empty totalCookies array
+  for (var j = 0; j < totalCookies.length; j++){ //Loop to add our empty totalCookies array
     sumTotCookies = totalCookies[j] + sumTotCookies;
     console.log(`Sum of totcookies ${sumTotCookies}`);
   }
@@ -32,12 +37,8 @@ var shop1 = {
   maxCustomer: 65,
   avgCookiesPS: 6.3,
   elementID: 'shop1',
-  getRandomCookie: function(min, max) {
-    min = this.minCustomer;
-    max = this.maxCustomer;
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
   render: function() {
+    getRandomCookie(this);
     getCookiesorSomething(this);
   }
 };
@@ -49,12 +50,8 @@ var shop2 = {
   maxCustomer: 24,
   avgCookiesPS: 1.2,
   elementID: 'shop2',
-  getRandomCookie: function(min, max) {
-    min = this.minCustomer;
-    max = this.maxCustomer;
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
   render: function() {
+    getRandomCookie(this);
     getCookiesorSomething(this);
   }
 };
@@ -65,12 +62,8 @@ var shop3 = {
   maxCustomer: 38,
   avgCookiesPS: 3.7,
   elementID: 'shop3',
-  getRandomCookie: function(min, max) {
-    min = this.minCustomer;
-    max = this.maxCustomer;
-    return Math.round(Math.random() * (max - min + 1) + min);
-  },
   render: function() {
+    getRandomCookie(this);
     getCookiesorSomething(this);
   }
 };
@@ -81,12 +74,8 @@ var shop4 = {
   maxCustomer: 38,
   avgCookiesPS: 2.3,
   elementID: 'shop4',
-  getRandomCookie: function(min, max) {
-    min = this.minCustomer;
-    max = this.maxCustomer;
-    return Math.round(Math.random() * (max - min + 1) + min);
-  },
   render: function() {
+    getRandomCookie(this);
     getCookiesorSomething(this);
   }
 };
@@ -97,12 +86,8 @@ var shop5 = {
   maxCustomer: 16,
   avgCookiesPS: 4.6,
   elementID: 'shop5',
-  getRandomCookie: function(min, max) {
-    min = this.minCustomer;
-    max = this.maxCustomer;
-    return Math.round(Math.random() * (max - min + 1) + min);
-  },
   render: function() {
+    getRandomCookie(this);
     getCookiesorSomething(this);
   }
 };
