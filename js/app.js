@@ -6,7 +6,7 @@ function getRandomCookie(index) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getCookiesorSomething(index) {
+function calculateCookiesPerDay(index) {
   var totalCookies = []; //Stores the total cookies into an array
   var ulEl = document.getElementById(index.elementID);
   for (var i = 0; i < times.length + 1; i++) {
@@ -39,7 +39,7 @@ var shop1 = {
   elementID: 'shop1',
   render: function() {
     getRandomCookie(this);
-    getCookiesorSomething(this);
+    calculateCookiesPerDay(this);
   }
 };
 
@@ -52,7 +52,7 @@ var shop2 = {
   elementID: 'shop2',
   render: function() {
     getRandomCookie(this);
-    getCookiesorSomething(this);
+    calculateCookiesPerDay(this);
   }
 };
 
@@ -64,7 +64,7 @@ var shop3 = {
   elementID: 'shop3',
   render: function() {
     getRandomCookie(this);
-    getCookiesorSomething(this);
+    calculateCookiesPerDay(this);
   }
 };
 
@@ -76,7 +76,7 @@ var shop4 = {
   elementID: 'shop4',
   render: function() {
     getRandomCookie(this);
-    getCookiesorSomething(this);
+    calculateCookiesPerDay(this);
   }
 };
 
@@ -88,7 +88,7 @@ var shop5 = {
   elementID: 'shop5',
   render: function() {
     getRandomCookie(this);
-    getCookiesorSomething(this);
+    calculateCookiesPerDay(this);
   }
 };
 
