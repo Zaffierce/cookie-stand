@@ -92,8 +92,10 @@ function renderShopBody() {
   }
 }
 
-// function renderShopTotal() {
-// }
+function renderFooter() {
+  
+}
+
 
 new Shops('First & Pike', 23, 65, 6.3);
 new Shops('SeaTac', 3, 24, 1.2);
@@ -103,4 +105,3 @@ new Shops('Alki', 2, 16, 4.6);
 
 renderShopName();
 renderShopBody();
-// calculateCookiesPerHour();
