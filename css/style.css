@@ -5,3 +5,11 @@ table {
 th {
   border: 1px dotted red;
 }
+
+td {
+  border: 1px dotted blue;
+}
+
+tr {
+  border: 2px dotted green;
+}
