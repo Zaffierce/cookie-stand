@@ -1,7 +1,6 @@
 'use strict';
 
 var hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'];
-// var cookiesPerHour = [];
 
 var tablebody = document.getElementById('table');
 var allShops = [];
@@ -92,8 +91,14 @@ function renderShopBody() {
   }
 }
 
-// function renderShopTotal() {
-// }
+function renderShopTotal() {
+  var trEl = document.createElement('tr');
+  trEl.textContent = 'Total:';
+  tablebody.appendChild(trEl);
+
+  //Add something later
+
+}
 
 new Shops('First & Pike', 23, 65, 6.3);
 new Shops('SeaTac', 3, 24, 1.2);
@@ -103,4 +108,4 @@ new Shops('Alki', 2, 16, 4.6);
 
 renderShopName();
 renderShopBody();
-// calculateCookiesPerHour();
+renderShopTotal();
