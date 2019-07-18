@@ -6,35 +6,40 @@ var tablebody = document.getElementById('table');
 var allShops = [];
 
 function Shops(shopName, minCustomersEachHour, maxCustomersEachHour, averageCookiesPerCustomer) {
-  var projectedCustomersPerHour = [];
-  var projectedCookiesPerHour = [];
-  var totalCookiesPerDay = 0;
   this.shopName = shopName;
   this.minCustomersEachHour = minCustomersEachHour;
   this.maxCustomersEachHour = maxCustomersEachHour;
   this.averageCookiesPerCustomer = averageCookiesPerCustomer;
-  this.projectedCustomersPerHour = projectedCustomersPerHour;
-  this.projectedCookiesPerHour = projectedCookiesPerHour;
-  this.totalCookiesPerDay = totalCookiesPerDay;
-
-  for (var i = 0; i < hours.length; i++) { //Generates projected customers per hour
-    var projectedCustomers = randomNumber(minCustomersEachHour, maxCustomersEachHour);
-    projectedCustomersPerHour.push(projectedCustomers);
-  }
-
-  for (var i = 0; i < hours.length; i++) { //Generates projected cookies per hour based off of customers per hour
-    var projectedCookies = generateCookiesPerHour(averageCookiesPerCustomer, projectedCustomersPerHour[i]);
-    projectedCookiesPerHour.push(projectedCookies);
-  }
-
-  for (var i = 0; i < hours.length; i++) { //Sums the cookies per hour into a total for the day
-    var sumProjectedCookies = sum(projectedCookiesPerHour);
-    this.totalCookiesPerDay = sumProjectedCookies;
-  }
-  projectedCookiesPerHour.push(sumProjectedCookies);
+  this.totalCookiesPerDay = 0;
+  this.projectedCustomersPerHour = [];
+  this.projectedCookiesPerHour = [];
+  this.cookiesPerHourTotal = 0;
 
   allShops.push(this);
 }
+
+Shops.prototype.projectedCustomers = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var projectedCustomers = randomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
+    this.projectedCustomersPerHour.push(projectedCustomers);
+  }
+};
+
+Shops.prototype.projectedCookies = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var projectedCookies = generateCookiesPerHour(this.averageCookiesPerCustomer, this.projectedCustomersPerHour[i]);
+    this.projectedCookiesPerHour.push(projectedCookies);
+  }
+};
+
+Shops.prototype.sumProjectedCookies = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var sumCookies = sum(this.projectedCookiesPerHour);
+    this.totalCookiesPerDay = sumCookies;
+  }
+  // this.projectedCookiesPerHour.push(this.sumCookies);
+  this.projectedCookiesPerHour.push(sumCookies);
+};
 
 
 function generateCookiesPerHour(customersPerHour, randomNumber) {
@@ -55,49 +60,59 @@ function sum(arr) {
   return total;
 }
 
-
-function renderShopName() {
+//Creates the header
+function renderShopHeader() {
   var trEl = document.createElement('tr');
   tablebody.appendChild(trEl);
   var thEl = document.createElement('th');
+  thEl.textContent = ''; //Places blank space
+  trEl.appendChild(thEl); //before calling hours
 
-  hours.unshift(''); //Puts a blank space at the beginning of my hours
-  hours.push('Total'); //Adds Total at the end of my hours
-
-  for (var i = 0; i < hours.length; i++) {
+  for (var i = 0; i < hours.length + 1; i++) { //Adds +1 to account for blank space
     thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
-
+  thEl.textContent = 'Totals'; //Places 'Totals' after
+  trEl.appendChild(thEl); //after calling hours
 }
 
+//Renders the meat & potatoes of the content
+Shops.prototype.render = function() {
+  this.projectedCustomers();
+  this.projectedCookies();
+  this.sumProjectedCookies();
 
-function renderShopBody() {
-  var trEl = document.createElement('tr'); //sends new tr
-  var tdEl = document.createElement('td');
-  tablebody.appendChild(trEl);
-
-  for (var i = 0; i < allShops.length; i++) {
-    trEl = document.createElement('tr');
-    trEl.textContent = allShops[i].shopName;
-    tablebody.appendChild(trEl);
-
-    for (var j = 0; j < allShops[i].projectedCookiesPerHour.length; j++) {
-      tdEl = document.createElement('td');
-      tdEl.textContent = allShops[i].projectedCookiesPerHour[j];
-      trEl.appendChild(tdEl);
-    }
-  }
-}
-
-function renderShopTotal() {
   var trEl = document.createElement('tr');
-  trEl.textContent = 'Total:';
+  trEl.textContent = this.shopName;
   tablebody.appendChild(trEl);
+  for (var i = 0; i < hours.length + 1; i++) { //Adds +1 to account for the total cookies per shop
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.projectedCookiesPerHour[i];
+    trEl.appendChild(tdEl);
+  }
+};
 
-  //Add something later
-
+function renderShopFooter() {
+  var trEl = document.createElement('tr');
+  trEl.textContent = 'Footer';
+  tablebody.appendChild(trEl);
+  for (var i = 0; i < hours.length; i++) {
+    var cookiesPerHourTotal = 0;
+    for (var j = 0; j < allShops.length; j++) { //Loops our cookies per hour 
+      cookiesPerHourTotal += allShops[j].projectedCookiesPerHour[i];
+    }
+    var tdEl = document.createElement('td');
+    tdEl.textContent = cookiesPerHourTotal;
+    trEl.appendChild(tdEl);
+  }
+  var sumTotalCookiesPerHour = 0;
+  for (i = 0; i < allShops.length; i++) {
+    sumTotalCookiesPerHour += allShops[i].totalCookiesPerDay;
+  }
+  tdEl = document.createElement('td');
+  tdEl.textContent = sumTotalCookiesPerHour;
+  trEl.appendChild(tdEl);
 }
 
 new Shops('First & Pike', 23, 65, 6.3);
@@ -106,6 +121,33 @@ new Shops('Seattle Center', 11, 38, 3.7);
 new Shops('Cap Hill', 20, 38, 2.3);
 new Shops('Alki', 2, 16, 4.6);
 
-renderShopName();
-renderShopBody();
-renderShopTotal();
+
+
+var formEl = document.getElementById('myForm');
+
+formEl.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var shopName = event.target.shopName.value;
+  var minCustomersEachHour = parseInt(event.target.minCustomersEachHour.value);
+  var maxCustomersEachHour = parseInt(event.target.maxCustomersEachHour.value);
+  var averageCookiesPerCustomer = parseInt(event.target.averageCookiesPerCustomer.value);
+
+  new Shops(shopName, minCustomersEachHour, maxCustomersEachHour, averageCookiesPerCustomer);
+
+  tablebody.innerHTML = '';
+
+  renderShopHeader();
+  for (var i = 0; i < allShops.length; i++) {
+    allShops[i].render();
+  }
+
+  renderShopFooter();
+
+});
+
+renderShopHeader();
+for (var i = 0; i < allShops.length; i++) {
+  allShops[i].render();
+}
+renderShopFooter();
