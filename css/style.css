@@ -1,15 +1,210 @@
+body {
+  height: auto;
+  width: 1080px;
+  margin: auto;
+  background-color: #E96D63;
+  /* border: 1px black solid; */
+}
+
+header {
+  height: 100px;
+  background-color: #4A789C;
+  padding-top:10px;
+  /* text-align: center; */
+  /* display: block; */
+}
+
+header div {
+  width: 80%;
+  margin: auto;
+  height: auto;
+  padding-top: 10px;
+}
+
+header img {
+  height: 70px;
+  width: 200px;
+  /* padding-top: 5px; */
+  /* display: inline; */
+  margin: auto;
+}
+
+nav {
+  display: inline-block;
+  /* width: 60%; */
+  position: absolute;
+}
+
+/* nav ul {
+  border: 1px black solid;
+} */
+
+nav li {
+  display: inline-block; /*Places the links in a row*/
+  padding: 30px;
+}
+
+nav a {
+  color: lightgray;
+  text-decoration: none;
+  /* border: 1px red solid; */
+}
+
+main {
+  text-align: center;
+  width: 960px;
+  margin: auto;
+  height: auto;
+  /* border: 1px green solid; */
+  padding-bottom: 30px;
+}
+
+main section {
+  padding-top: 15px;
+}
+
+main img {
+  display: inline-block;
+}
+
+#fish-container {
+  background-color: #85C1F5;
+  /* opacity: 0.9; */
+}
+
+#banner {
+  margin: auto;
+}
+
+#banner img:nth-child(2) {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#locations {
+  float: left;  
+  height: 375px;
+  width: 300px;
+  overflow: auto;
+  background-color: #85C1F5;
+  padding-bottom: 5px;
+}
+
+#events {
+  margin-left: 30px;
+  margin-right: 30px;
+  float: left;
+  height: 375px;
+  width: 300px;
+  overflow: auto;
+  background-color: #85C1F5;
+}
+
+#products {
+  height: 375px;
+  width: 300px;
+  overflow: auto;
+  background-color: #85C1F5;
+}
+
+#featured {
+  font-size: 16px;
+  text-align: center;
+  /* border: 1px blue dotted; */
+  height: 400px;
+  /* display: inline-block; */
+}
+
+#featured img {
+  float: left; /*Puts the image to the left of the text*/
+  /* border: 1px purple dotted; */
+  padding-right: 30px;
+}
+
+h1 {
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#events h2 , #products h2 , #locations h2 {
+  text-align: center;
+  padding-left: 10px;
+}
+
+#locations ul, #events ul , #products ul{
+  text-align: left;
+  padding-left: 10px;
+}
+
+.shoplocation > li , .eventsinfo > li , .forsale > li { /*This specifically targets the first li in my nested ul*/
+  font-size: 20px;
+  padding-top: 10px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.shoplocation ul li , .eventsinfo ul li , .forsale ul li {
+  font-size: 14px;
+  font-style: italic;
+}
+
+#products img {
+  width: 50px;
+  height: 50px;
+  transition: transform .2s;
+}
+
+#products img:hover {
+  transform: scale(2.5);
+  margin: auto;
+  padding-left: 10px;
+  padding-top: 25px;
+}
+
+#featured p {
+  text-align: left;
+  height: 400px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1.1;
+  overflow: auto;
+}
+
+footer {
+  margin-top: 10px;
+  clear: both;
+  height: 100px;
+  background-color: #4A789C;
+  text-align: center;
+  display: block;
+}
+
+#content {
+  background-color: #F4BA70;
+}
+
 table {
-  border: 1px solid black;
+  margin: auto;
 }
 
 th {
-  border: 1px dotted red;
+  /* border: 1px dotted red; */
+  font-weight: bold;
+  padding: 5px;
 }
 
 td {
-  border: 1px dotted blue;
+  border: 1px solid blue;
 }
 
 tr {
-  border: 2px dotted green;
+  border: 1px solid green;
 }
