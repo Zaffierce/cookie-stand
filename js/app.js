@@ -41,7 +41,7 @@ Shops.prototype.projectedCustomers = function() {
 
 Shops.prototype.render = function() {
   this.projectedCustomers();
-
+  
   var thEl = document.createElement('th');
   var trEl = document.createElement('tr');
   thEl.textContent = this.shopName;
@@ -59,9 +59,12 @@ Shops.prototype.render = function() {
 
 
 function generateCookiesPerHour(customersPerHour, randomNumber) {
-  return Math.ceil(customersPerHour * randomNumber);
+  var controlCurve = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
+  for (var i = 0; i < controlCurve.length; i++) {
+    var cookiesPerHourWithControlCurve = Math.ceil((customersPerHour * randomNumber) * controlCurve[i]);
+  }
+  return cookiesPerHourWithControlCurve;
 }
-
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
