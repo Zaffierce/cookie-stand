@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Salmon Cookies</title>
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <header>
+    <div>
+  <img src="images/Chinook_resized.png" title="Chinook" alt="Picture of a Chinook fish" />
+  <nav>Salmon Cookies
+    <ul>
+      <li><a href='index.html'>Home Page</a></li>
+      <li><a href='store.html'>Shop</a></li>
+      <li><a href='#'>Link Item 3</a></li>
+      <li><a href='sales.html'>Sales Link</a></li>
+    </ul>
+  </nav>
+  </div>
+</header>
+<main>
+  <section id="content">
+    <form id="sales">
+        <fieldset>
+          <span id="salesSection">
+            <label>Name: </label>
+            <input name="clientsName" type="text" />
+          </span><br>
+          <span id="salesSection">
+            <label>Address: </label>
+            <input name="clientsAddress" type="text" />
+          </span><br>
+          <span id="salesSection">
+            <label>Telephone Number: </label>
+            <input name="clientsPhoneNumber" type="text" />
+          </span>
+          <span id="salesSection">
+            <label>Please check what kind of shipping you would like:</label>
+          <span id="salesSection">
+            <input type="checkbox" name="shipping" value="Express">Express - Adds $5.99 to price</input>
+          </span>
+          <span id="salesSection">
+            <input type="checkbox" name="shipping" value="3-day">3 day - Adds $2.99 to price</input>
+          </span>
+          <span id="salesSection">
+            <input type="checkbox" name="shipping" value="Regular">Regular - Expected 5 - 7 days after purchase</input>
+          </span>
+          </span>
+          <span id="salesSection">
+            <label>Please choose which product you would like to buy:</label>
+            <select class="product" name="product">
+              <option value="cookieCutter">$19.99 - Pat's Patented Super Salmon Cookie Cutter</option>
+              <option value="salmonCookies">$9.99 - 1 Box of Salmon Cookies</option>
+              <option value="painting">$99.99 - Painting by Pat Jr.</option>
+              <option value="shirt">$5.99 - Pat's favorite shirt</option>
+            </select>
+          </span>
+            <input type="submit" name="purchase" value="submit" />
+          </fieldset>
+    </form>
+  </section>
+</main>
+<footer>
+  <script src="js/shop.js" lang="text/javascript"></script>
+  </footer>
+</body>
+</html>

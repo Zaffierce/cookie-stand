@@ -10,6 +10,7 @@ header {
   height: 100px;
   background-color: #4A789C;
   padding-top:10px;
+  margin-bottom: 30px;
   /* text-align: center; */
   /* display: block; */
 }
@@ -33,6 +34,9 @@ nav {
   display: inline-block;
   /* width: 60%; */
   position: absolute;
+  font-family: 'Lobster', cursive;
+  font-size: 34px;
+  text-align: center;
 }
 
 /* nav ul {
@@ -42,6 +46,7 @@ nav {
 nav li {
   display: inline-block; /*Places the links in a row*/
   padding: 30px;
+  font-size: 24px;
 }
 
 nav a {
@@ -56,7 +61,6 @@ main {
   margin: auto;
   height: auto;
   /* border: 1px green solid; */
-  padding-bottom: 30px;
 }
 
 main section {
@@ -121,6 +125,16 @@ main img {
   padding-right: 30px;
 }
 
+#featured p {
+  text-align: left;
+  height: 370px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1.1;
+  overflow: auto;
+}
+
 h1 {
   text-align: left;
   font-size: 28px;
@@ -168,16 +182,6 @@ h2 {
   padding-top: 25px;
 }
 
-#featured p {
-  text-align: left;
-  height: 400px;
-  font-size: 20px;
-  font-weight: bold;
-  font-style: italic;
-  line-height: 1.1;
-  overflow: auto;
-}
-
 footer {
   margin-top: 10px;
   clear: both;
@@ -185,6 +189,7 @@ footer {
   background-color: #4A789C;
   text-align: center;
   display: block;
+  margin-top: 30px;
 }
 
 #content {
@@ -207,4 +212,25 @@ td {
 
 tr {
   border: 1px solid green;
+}
+#salesSection {
+  display: block;
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  width: 35%;
+  clear: both;
+}
+
+#salesSection span {
+  width: 95%;
+}
+#salesSection label {
+  padding-right: 20px;
+  padding-bottom: 10px;
+  float: left;
+}
+#salesSection input {
+  padding-left: 5px;
+  float: right;
 }
