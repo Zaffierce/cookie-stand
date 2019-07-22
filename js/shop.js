@@ -3,10 +3,11 @@
 var formEl = document.getElementById('sales');
 var formProduct = document.querySelector('.product');
 
+//created from an example on MDN.
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+
 formProduct.addEventListener('change', function(event) {
   event.preventDefault();
-  // console.log(`${event.target.value}`);
-  //cookieCutter, salmonCookies, painting, shirt
   if (event.target.value === 'cookieCutter') {
     console.log('Cookie Cutter');
   }
@@ -31,6 +32,8 @@ formEl.addEventListener('submit', function(event) {
   var shippingOption = '';
   console.log(shipping.length);
   var shippingCount = 0;
+  //Created from an example on MDN.
+  //https://www.w3schools.com/jsref/prop_checkbox_checked.asp
   for (var i = 0; i < shipping.length; i++) {
     if (shipping[i].checked) {
       shippingCount++;
